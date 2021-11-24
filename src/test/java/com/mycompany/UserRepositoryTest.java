@@ -25,6 +25,7 @@ public class UserRepositoryTest {
     user.setPassword("JeanLouis");
     user.setFirstName("Jean");
     user.setLastName("Louis");
+    user.setEnabled(true);
 
     User savedUser = repo.save(user);
 
@@ -74,7 +75,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testDelete(){
-    Integer userId=2;
+    Integer userId=3;
     repo.deleteById(userId);
     Optional<User> optionalUser = repo.findById(userId);
     Assertions.assertThat(optionalUser).isNotPresent();
